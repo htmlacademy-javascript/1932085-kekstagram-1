@@ -1,7 +1,4 @@
-import './data.js';
-import './util.js';
-import {createPhotos} from './data.js';
+import { createPhotos } from './data.js';
+import { createMiniatures } from './miniatures.js';
 
-console.log(
-  createPhotos()
-);
+createMiniatures(createPhotos());
