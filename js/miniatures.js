@@ -1,7 +1,9 @@
+import { openModal, closeModal } from './big-picture.js';
+
 const container = document.querySelector('.pictures');
 const template = document.querySelector('#picture').content.querySelector('.picture');
 
-const createPicture = ({url, description, comments, likes}) => {
+const createPicture = ({url, description, comments, likes, id}) => {
   const pictureNew = template.cloneNode(true);
 
   pictureNew.querySelector('.picture__img').src = url;
@@ -9,6 +11,7 @@ const createPicture = ({url, description, comments, likes}) => {
   pictureNew.querySelector('.picture__comments').textContent =
     comments.length;
   pictureNew.querySelector('.picture__likes').textContent = likes;
+  pictureNew.dataset.pictureNewId = id;
   return pictureNew;
 };
 
