@@ -32,7 +32,6 @@ const renderLoader = () => {
     newCommentsLoader.classList.add('hidden');
   }
 };
-
 const createComments = () => {
   const fragment = document.createDocumentFragment();
 
