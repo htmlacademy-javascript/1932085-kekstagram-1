@@ -48,4 +48,3 @@ formTag.addEventListener('submit', (evt) => {
     evt.preventDefault();
   }
 });
-
