@@ -77,7 +77,7 @@ function closeModal() {
   bigPictureTag.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
-};
+}
 
 function onPopupEscKeydown(evt) {
   if (isEscapeKey(evt)) {
