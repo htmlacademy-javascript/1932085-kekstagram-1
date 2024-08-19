@@ -1,5 +1,6 @@
 import { isValid } from './validation.js';
 import { isEscapeKey } from './util.js';
+import {reset as resetScale} from './scale.js';
 
 const uploadFileTag = document.querySelector('#upload-file');
 const uploadWindowTag = document.querySelector('.img-upload__overlay');
@@ -12,6 +13,8 @@ formTag.querySelector('.text__description');
 const openModal = () => {
   uploadWindowTag.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscKeydown);
+  document.body.classList.add('modal-open');
+  resetScale();
 };
 
 function closeModal () {

@@ -1,4 +1,5 @@
 import { isEscapeKey } from './util.js';
+import { COMMENTS_PORTION } from './const.js';
 
 const bigPictureTag = document.querySelector('.big-picture');
 const closeButtonTag = bigPictureTag.querySelector('.big-picture__cancel');
@@ -7,7 +8,6 @@ const socialCommentsCount = document.querySelector('.social__comment-count');
 const newCommentsLoader = document.querySelector('.comments-loader');
 const socialCommentClone = document.querySelector('.social__comment');
 const commentsContainer = document.querySelector('.social__comments');
-const COMMENTS_PORTION = 5;
 const localComments = [];
 let total = 0;
 let renderedCommentsCount = 0;
