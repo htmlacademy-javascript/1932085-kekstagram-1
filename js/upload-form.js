@@ -1,6 +1,7 @@
 import { isValid } from './validation.js';
 import { isEscapeKey } from './util.js';
 import {reset as resetScale} from './scale.js';
+import { resetEffects } from './effects.js';
 
 const uploadFileTag = document.querySelector('#upload-file');
 const uploadWindowTag = document.querySelector('.img-upload__overlay');
@@ -20,6 +21,7 @@ const openModal = () => {
 function closeModal () {
   uploadWindowTag.classList.add('hidden');
   formTag.reset();
+  resetEffects();
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', onPopupEscKeydown);
 }
