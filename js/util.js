@@ -1,3 +1,5 @@
+const errorDataTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
+
 const getRandomInteger = (min, max) => {
   const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
   const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
@@ -22,5 +24,13 @@ const createRandomIdFromRangeGenerator = (min, max) => {
 };
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export { getRandomInteger, createRandomIdFromRangeGenerator, isEscapeKey };
+const showErrorMessage = () => {
+  const errorMessage = errorDataTemplate.cloneNode(true);
+  document.body.append(errorMessage);
+  setTimeout(() => {
+    document.querySelector('.data-error').remove();
+  }, 3000);
+};
+
+export { getRandomInteger, createRandomIdFromRangeGenerator, isEscapeKey, showErrorMessage };
 

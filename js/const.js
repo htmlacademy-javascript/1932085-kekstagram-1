@@ -57,3 +57,5 @@ export const EFFECTS_SETTINGS = {
     UNITS: ''
   },
 };
+
+export const GET_DATA = 'https://28.javascript.htmlacademy.pro/kekstagram/data';
