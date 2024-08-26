@@ -59,3 +59,9 @@ export const EFFECTS_SETTINGS = {
 };
 
 export const GET_DATA = 'https://28.javascript.htmlacademy.pro/kekstagram/data';
+export const POST_DATA = 'https://28.javascript.htmlacademy.pro/kekstagram/';
+
+export const SubmitButton = {
+  SENDING: 'Публикую...',
+  DEFAULT: 'Опубликовать'
+};

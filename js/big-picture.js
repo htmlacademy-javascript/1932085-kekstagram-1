@@ -1,5 +1,5 @@
-import { isEscapeKey } from './util.js';
 import { COMMENTS_PORTION } from './const.js';
+import { setEscapeControl, removeEscapeControl } from './escape-control.js';
 
 const bigPictureTag = document.querySelector('.big-picture');
 const closeButtonTag = bigPictureTag.querySelector('.big-picture__cancel');
@@ -65,25 +65,18 @@ const openModal = (data) => {
   bigPictureTag.classList.remove('hidden');
   document.body.classList.add('modal-open');
   renderBigPicture(data);
-  document.addEventListener('keydown', onPopupEscKeydown);
+  setEscapeControl(closeModal);
 };
 
 closeButtonTag.addEventListener('click', (evt) => {
   evt.preventDefault();
   closeModal();
+  removeEscapeControl();
 });
 
 function closeModal() {
   bigPictureTag.classList.add('hidden');
   document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', onPopupEscKeydown);
-}
-
-function onPopupEscKeydown(evt) {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeModal();
-  }
 }
 
 export { openModal, closeModal, };

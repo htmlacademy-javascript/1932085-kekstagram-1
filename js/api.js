@@ -1,4 +1,4 @@
-import { GET_DATA } from './const.js';
+import { GET_DATA, POST_DATA } from './const.js';
 
 const getData = () => fetch(GET_DATA)
   .then((response) => {
@@ -8,4 +8,14 @@ const getData = () => fetch(GET_DATA)
     return response.json();
   });
 
-export { getData };
+const sendData = (data) => fetch(POST_DATA, {
+  method: 'POST',
+  body: data
+})
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Что-то пошло не так');
+    }
+  });
+
+export { getData, sendData };
