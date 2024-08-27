@@ -40,6 +40,13 @@ const updateSlider = () => {
   });
 };
 
+const resetEffects = () => {
+  sliderContainerTag.classList.add('hidden');
+  imageTag.style.filter = '';
+  inputTag.value = 0;
+  defaultRadioTag.checked = true;
+};
+
 effectsTag.addEventListener('change', (evt) => {
   currentEffect = evt.target.value;
   if (currentEffect === EFFECTS.DEFAULT) {
@@ -49,13 +56,6 @@ effectsTag.addEventListener('change', (evt) => {
     sliderContainerTag.classList.remove('hidden');
   }
 });
-
-const resetEffects = () => {
-  sliderContainerTag.classList.add('hidden');
-  imageTag.style.filter = ``;
-  inputTag.value = 0;
-  defaultRadioTag.checked = true;
-};
 
 resetEffects();
 
