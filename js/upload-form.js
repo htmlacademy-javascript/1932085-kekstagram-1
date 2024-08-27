@@ -12,12 +12,19 @@ const uploadWindowTag = document.querySelector('.img-upload__overlay');
 const closeButtonTag = document.querySelector('.img-upload__cancel');
 const formTag = document.querySelector('.img-upload__form');
 const hashtagsInput = formTag.querySelector('.text__hashtags');
+const imagePreviewTag = document.querySelector('.img-upload__preview img');
+const radiosSpanTags = document.querySelectorAll('.effects__preview');
 const descriptionTextarea =
   formTag.querySelector('.text__description');
 
 const openModal = () => {
   uploadWindowTag.classList.remove('hidden');
   document.body.classList.add('modal-open');
+  const imageUrl = URL.createObjectURL(uploadFileTag.files[0]);
+  imagePreviewTag.src = imageUrl;
+  radiosSpanTags.forEach((span) => {
+    span.style.backgroundImage = `url(${imageUrl})`;
+  });
   resetScale();
   setEscapeControl(closeModal, canBeClosed);
 };
@@ -39,4 +46,29 @@ closeButtonTag.addEventListener('click', (evt) => {
   removeEscapeControl();
 });
 
-removeEscapeControl();
+const canBeClosed = () => !(hashtagsInput === document.activeElement || descriptionTextarea === document.activeElement);
+
+const blockSubmit = (isBlocked = false) => {
+  uploadButtonTag.disabled = isBlocked;
+  uploadButtonTag.textContent = isBlocked ? SubmitButton.SENDING : SubmitButton.DEFAULT;
+};
+
+formTag.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  if (isValid()) {
+    const formData = new FormData(formTag);
+    blockSubmit(true);
+    sendData(formData)
+      .then(() => {
+        closeModal();
+        removeEscapeControl();
+        showSuccessPopup();
+      })
+      .catch(() => {
+        showErrorPopup();
+      })
+      .finally(() => {
+        blockSubmit();
+      });
+  }
+});

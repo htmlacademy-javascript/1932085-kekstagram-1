@@ -32,5 +32,12 @@ const showErrorMessage = () => {
   }, 3000);
 };
 
-export { getRandomInteger, createRandomIdFromRangeGenerator, isEscapeKey, showErrorMessage };
+export const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
 
+export { getRandomInteger, createRandomIdFromRangeGenerator, isEscapeKey, showErrorMessage };

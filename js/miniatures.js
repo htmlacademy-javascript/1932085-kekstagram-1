@@ -16,9 +16,16 @@ const createPicture = ({ url, description, comments, likes, id }) => {
   return pictureNew;
 };
 
+const clear = () => {
+  document.querySelectorAll('.picture').forEach((card) => {
+    card.remove();
+  });
+};
+
 const createMiniatures = (pictures) => {
   localPictures.length = 0;
   localPictures.push(...pictures.slice());
+  clear();
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {
     const pictureNew = createPicture(picture);

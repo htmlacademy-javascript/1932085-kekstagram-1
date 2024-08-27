@@ -65,3 +65,5 @@ export const SubmitButton = {
   SENDING: 'Публикую...',
   DEFAULT: 'Опубликовать'
 };
+
+export const RANDOM_LIMIT = 10;
