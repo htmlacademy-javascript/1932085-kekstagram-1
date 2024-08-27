@@ -1,4 +1,4 @@
-import { openModal,} from './big-picture.js';
+import { openModal} from './big-picture.js';
 
 const container = document.querySelector('.pictures');
 const template = document.querySelector('#picture').content.querySelector('.picture');

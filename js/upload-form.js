@@ -17,6 +17,8 @@ const radiosSpanTags = document.querySelectorAll('.effects__preview');
 const descriptionTextarea =
   formTag.querySelector('.text__description');
 
+const canBeClosed = () => !(hashtagsInput === document.activeElement || descriptionTextarea === document.activeElement);
+
 const openModal = () => {
   uploadWindowTag.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -45,8 +47,6 @@ closeButtonTag.addEventListener('click', (evt) => {
   closeModal();
   removeEscapeControl();
 });
-
-const canBeClosed = () => !(hashtagsInput === document.activeElement || descriptionTextarea === document.activeElement);
 
 const blockSubmit = (isBlocked = false) => {
   uploadButtonTag.disabled = isBlocked;
