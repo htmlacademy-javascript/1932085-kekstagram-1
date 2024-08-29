@@ -1,4 +1,4 @@
-import { isValid } from './validation.js';
+import { isValid, reset as resetValidation } from './validation.js';
 import { reset as resetScale } from './scale.js';
 import { resetEffects } from './effects.js';
 import { sendData } from './api.js';
@@ -35,6 +35,7 @@ function closeModal() {
   uploadWindowTag.classList.add('hidden');
   formTag.reset();
   resetEffects();
+  resetValidation();
   document.body.classList.remove('modal-open');
 }
 

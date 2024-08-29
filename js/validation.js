@@ -66,4 +66,6 @@ pristine.addValidator(
 
 const isValid = () => pristine.validate();
 
-export { isValid };
+const reset = () => pristine.reset();
+
+export { isValid, reset };
